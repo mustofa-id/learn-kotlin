@@ -36,6 +36,11 @@ fun main() {
     val fibonacci = fibonacciNumber(index, BigInteger("1"), BigInteger("0"))
     println("Fibonacci in index $index is:\n$fibonacci")
 
+    allName("my", "name", "is", "mustofa")
+    // or
+    val varargItems = arrayOf("my", "name", "is", "habib")
+    allName(*varargItems)
+
     name = "Done!"
     printTag(name)
 }
@@ -57,4 +62,8 @@ infix fun Int.gt(value: Int): Boolean = this > value
 tailrec fun fibonacciNumber(n: Int, a: BigInteger, b: BigInteger): BigInteger {
     return if (n == 0) b
     else fibonacciNumber(n - 1, a + b, a)
+}
+
+fun allName(vararg items: String) {
+    items.forEach { print("$it ") }
 }
